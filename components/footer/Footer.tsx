@@ -23,7 +23,7 @@ const isIcon = (item: Item): item is IconItem =>
 
 function SectionItem({ item }: { item: Item }) {
   return (
-    <span class="text-primary-content">
+    <span class="text-info-content">
       {isIcon(item)
         ? (
           <div class="border-base-100 border border-solid py-1.5 px-2.5">
@@ -82,18 +82,18 @@ function Footer({ sections = [], socials, footerDescription }: Props) {
         <div class="container w-full flex flex-col divide-y divide-primary-content">
           <FooterContainer>
             {/* Desktop view */}
-            <ul class="hidden sm:flex flex-row gap-20">
+            <ul class="hidden sm:flex flex-row flex-wrap max-w-[1221px] mx-auto gap-36 gap-y-[51px] justify-start pl-14">
               {sections.map((section) => (
                 <li>
                   <div>
-                    <span class="font-medium text-xl text-primary-content">
+                    <span class="font-bold text-base text-secondary uppercase">
                       {section.label}
                     </span>
 
                     <ul
                       class={`flex ${
                         isIcon(section.children[0]) ? "flex-row" : "flex-col"
-                      } gap-2 pt-2 flex-wrap`}
+                      } gap-4 pt-2 flex-wrap`}
                     >
                       {section.children.map((item) => (
                         <li>
