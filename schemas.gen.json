@@ -8192,6 +8192,50 @@
         "sections": {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9zY29sYWRvcy9jb21wb25lbnRzL2Zvb3Rlci9Gb290ZXIudHN4@Section[]",
           "title": "Sections"
+        },
+        "socials": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "icon": {
+                "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
+                "title": "Icon"
+              },
+              "alt": {
+                "type": "string",
+                "title": "Alt"
+              },
+              "href": {
+                "type": "string",
+                "title": "Href"
+              }
+            },
+            "required": [
+              "icon",
+              "alt",
+              "href"
+            ]
+          },
+          "title": "Socials"
+        },
+        "footerDescription": {
+          "type": "object",
+          "properties": {
+            "logoSrc": {
+              "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
+              "title": "Logo Src"
+            },
+            "description": {
+              "type": "string",
+              "title": "Description"
+            }
+          },
+          "required": [
+            "logoSrc",
+            "description"
+          ],
+          "title": "Footer Description"
         }
       },
       "required": [],

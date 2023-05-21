@@ -1,6 +1,8 @@
 import Icon, { AvailableIcons } from "$store/components/ui/Icon.tsx";
 import Newsletter from "$store/islands/Newsletter.tsx";
+import Description from "$store/components/footer/Description.tsx";
 import type { ComponentChildren } from "preact";
+import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
 
 export type IconItem = { icon: AvailableIcons };
 export type StringItem = {
@@ -53,17 +55,31 @@ function FooterContainer(
 
 export interface Props {
   sections?: Section[];
+  socials?: {
+    icon: LiveImage;
+    alt: string;
+    href: string;
+  }[];
+  footerDescription?: {
+    logoSrc: LiveImage;
+    description: string;
+  };
 }
 
-function Footer({ sections = [] }: Props) {
+function Footer({ sections = [], socials, footerDescription }: Props) {
   return (
-    <footer class="w-full bg-primary flex flex-col divide-y divide-primary-content">
+    <footer class="w-full flex flex-col divide-y divide-primary-content">
       <div>
         <div class="container w-full flex flex-col divide-y divide-primary-content">
           <FooterContainer>
             <Newsletter />
           </FooterContainer>
-
+        </div>
+        <Description
+          socials={socials}
+          footerDescription={footerDescription}
+        />
+        <div class="container w-full flex flex-col divide-y divide-primary-content">
           <FooterContainer>
             {/* Desktop view */}
             <ul class="hidden sm:flex flex-row gap-20">

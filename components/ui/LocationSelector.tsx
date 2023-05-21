@@ -29,7 +29,7 @@ function LocationSelector({ locations }: Props) {
         ))}
       </div>
       <div
-        class={`flex flex-col flex-wrap w-full mt-9 md:flex-row ${
+        class={`flex flex-col flex-wrap w-full mt-9 md:flex-row md:gap-3 ${
           selectedLocation && selectedLocation.schools.length === 1
             ? "justify-center"
             : ""
@@ -40,7 +40,7 @@ function LocationSelector({ locations }: Props) {
             return (
               <>
                 <div
-                  class={`w-full flex md:hidden justify-between py-2 px-4 text-sm md:mr-3 md:w-[32%] ${
+                  class={`w-full flex md:hidden justify-between py-2 px-4 text-sm md:w-[32%] ${
                     index % 2 === 0 ? "bg-info" : "bg-white"
                   }`}
                 >
@@ -50,7 +50,7 @@ function LocationSelector({ locations }: Props) {
                   </a>
                 </div>
                 <div
-                  class={`hidden md:flex w-full justify-between py-2 px-4 text-sm md:mr-3 md:w-[32%] ${
+                  class={`hidden md:flex w-full justify-between py-2 px-4 text-sm md:w-[32%] ${
                     index % 6 < 3 ? "bg-info" : "bg-white"
                   }`}
                 >

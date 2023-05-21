@@ -21,11 +21,11 @@ function CategoryList({ categories, title }: Props) {
       <div class="flex gap-5 md:gap-20 justify-center">
         {categories?.map((category) => (
           <div class="flex flex-col items-center">
-            <div class="flex justify-center items-center border border-solid border-secondary w-[76px] h-[67px] md:w-[135px] md:h-[115px] rounded-md">
-              <a href={category.href}>
+            <a href={category.href}>
+              <div class="flex justify-center items-center border border-solid border-secondary w-[76px] h-[67px] md:w-[135px] md:h-[115px] rounded-md">
                 <img alt={category.label} src={category.icon} />
-              </a>
-            </div>
+              </div>
+            </a>
             <span class="mt-2 text-xs md:text-base">{category.label}</span>
           </div>
         ))}
