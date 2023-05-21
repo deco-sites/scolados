@@ -1,3 +1,4 @@
+import { asset } from "$fresh/runtime.ts";
 import Icon, { AvailableIcons } from "$store/components/ui/Icon.tsx";
 import Newsletter from "$store/islands/Newsletter.tsx";
 import Description from "$store/components/footer/Description.tsx";
@@ -15,6 +16,8 @@ export type Item = StringItem | IconItem;
 export type Section = {
   label: string;
   children: Item[];
+  hideInMobile?: boolean;
+  alwaysOpen?: boolean;
 };
 
 const isIcon = (item: Item): item is IconItem =>
@@ -80,7 +83,7 @@ function Footer({ sections = [], socials, footerDescription }: Props) {
           footerDescription={footerDescription}
         />
         <div class="container w-full flex flex-col divide-y divide-primary-content">
-          <FooterContainer>
+          <FooterContainer class="py-[10px]">
             {/* Desktop view */}
             <ul class="hidden sm:flex flex-row flex-wrap max-w-[1221px] mx-auto gap-36 gap-y-[51px] justify-start pl-14">
               {sections.map((section) => (
@@ -108,29 +111,72 @@ function Footer({ sections = [], socials, footerDescription }: Props) {
 
             {/* Mobile view */}
             <ul class="flex flex-col sm:hidden sm:flex-row gap-4">
-              {sections.map((section) => (
-                <li>
-                  <span class="text-primary-content">
-                    <details>
-                      <summary>
-                        {section.label}
-                      </summary>
+              {sections.map((section) =>
+                !section.hideInMobile && (
+                  <li>
+                    {section?.alwaysOpen
+                      ? (
+                        <div class="flex flex-col justify-center items-center">
+                          <span class="text-secondary uppercase font-bold text-base py-5">
+                            {section?.label}
+                          </span>
+                          <ul
+                            class={`flex ${
+                              isIcon(section.children[0])
+                                ? "flex-row"
+                                : "flex-col"
+                            } gap-5 pt-2`}
+                          >
+                            {section.children.map((item) => (
+                              <li>
+                                <SectionItem item={item} />
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      )
+                      : (
+                        <span class="text-primary-content">
+                          <details class="group">
+                            <summary class="flex w-full justify-between text-secondary uppercase font-bold text-base py-5 border-b border-info group-open:border-0">
+                              {section.label}
+                              <div class="group-open:hidden">
+                                <img
+                                  alt="Open"
+                                  class="w-[24px] h-[24px]"
+                                  loading="lazy"
+                                  src={asset("/icon-plus-mobile.webp")}
+                                />
+                              </div>
+                              <div class="hidden group-open:block">
+                                <img
+                                  alt="Close"
+                                  class="w-[14px] h-[2px]"
+                                  loading="lazy"
+                                  src={asset("/icon-less-mobile.webp")}
+                                />
+                              </div>
+                            </summary>
 
-                      <ul
-                        class={`flex ${
-                          isIcon(section.children[0]) ? "flex-row" : "flex-col"
-                        } gap-2 px-2 pt-2`}
-                      >
-                        {section.children.map((item) => (
-                          <li>
-                            <SectionItem item={item} />
-                          </li>
-                        ))}
-                      </ul>
-                    </details>
-                  </span>
-                </li>
-              ))}
+                            <ul
+                              class={`flex ${
+                                isIcon(section.children[0])
+                                  ? "flex-row"
+                                  : "flex-col"
+                              } gap-5 pt-2`}
+                            >
+                              {section.children.map((item) => (
+                                <li>
+                                  <SectionItem item={item} />
+                                </li>
+                              ))}
+                            </ul>
+                          </details>
+                        </span>
+                      )}
+                  </li>
+                )
+              )}
             </ul>
           </FooterContainer>
         </div>

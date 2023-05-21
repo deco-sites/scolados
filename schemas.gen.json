@@ -8172,6 +8172,20 @@
         "children": {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9zY29sYWRvcy9jb21wb25lbnRzL2Zvb3Rlci9Gb290ZXIudHN4@IconItem|StringItem[]",
           "title": "Children"
+        },
+        "hideInMobile": {
+          "type": [
+            "boolean",
+            "null"
+          ],
+          "title": "Hide In Mobile"
+        },
+        "alwaysOpen": {
+          "type": [
+            "boolean",
+            "null"
+          ],
+          "title": "Always Open"
         }
       },
       "required": [
