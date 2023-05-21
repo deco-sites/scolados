@@ -86,6 +86,33 @@ function Dots({ images, interval = 0 }: Props) {
   );
 }
 
+function Buttons() {
+  return (
+    <>
+      <div class="hidden md:flex absolute left-3 top-1/2 -translate-y-1/2 items-center justify-center z-10">
+        <Slider.PrevButton>
+          <Icon
+            class="text-primary"
+            size={25}
+            id="ChevronLeft"
+            strokeWidth={2}
+          />
+        </Slider.PrevButton>
+      </div>
+      <div class="hidden md:flex absolute right-3 top-1/2 -translate-y-1/2 items-center justify-center z-10">
+        <Slider.NextButton>
+          <Icon
+            class="text-primary"
+            size={25}
+            id="ChevronRight"
+            strokeWidth={2}
+          />
+        </Slider.NextButton>
+      </div>
+    </>
+  );
+}
+
 function BannerCarousel({ images, preload, interval }: Props) {
   const id = useId();
 
@@ -101,6 +128,8 @@ function BannerCarousel({ images, preload, interval }: Props) {
           </Slider.Item>
         ))}
       </Slider>
+
+      <Buttons />
 
       <Dots images={images} interval={interval} />
 
