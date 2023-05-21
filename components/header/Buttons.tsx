@@ -1,3 +1,4 @@
+import { asset } from "$fresh/runtime.ts";
 import Icon from "$store/components/ui/Icon.tsx";
 import Button from "$store/components/ui/Button.tsx";
 import { sendEvent } from "$store/sdk/analytics.tsx";
@@ -13,28 +14,12 @@ declare global {
   }
 }
 
-function SearchButton() {
-  const { displaySearchbar } = useUI();
-
-  return (
-    <Button
-      class="btn-square btn-ghost"
-      aria-label="search icon button"
-      onClick={() => {
-        displaySearchbar.value = !displaySearchbar.peek();
-      }}
-    >
-      <Icon id="MagnifyingGlass" width={20} height={20} strokeWidth={0.1} />
-    </Button>
-  );
-}
-
 function MenuButton() {
   const { displayMenu } = useUI();
 
   return (
     <Button
-      class="btn-square btn-ghost"
+      class="btn-square btn-ghost text-secondary"
       aria-label="open menu"
       onClick={() => {
         displayMenu.value = true;
@@ -72,7 +57,7 @@ function CartButton() {
 
   return (
     <Button
-      class="btn-square btn-ghost relative"
+      class="btn-square btn-ghost relative hover:bg-transparent"
       aria-label="open cart"
       data-deco={displayCart.value && "open-cart"}
       loading={loading.value}
@@ -84,19 +69,15 @@ function CartButton() {
             {totalItems > 9 ? "9+" : totalItems}
           </span>
         )}
-        <Icon id="ShoppingCart" width={20} height={20} strokeWidth={2} />
+        <img alt="Carrinho" class="w-6 h-6" src={asset("/icon-cart.webp")} />
       </div>
     </Button>
   );
 }
 
-function Buttons({ variant }: { variant: "cart" | "search" | "menu" }) {
+function Buttons({ variant }: { variant: "cart" | "menu" }) {
   if (variant === "cart") {
     return <CartButton />;
-  }
-
-  if (variant === "search") {
-    return <SearchButton />;
   }
 
   if (variant === "menu") {

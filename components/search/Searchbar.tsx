@@ -16,7 +16,6 @@ import Spinner from "$store/components/ui/Spinner.tsx";
 import ProductCard from "$store/components/product/ProductCard.tsx";
 import Slider from "$store/components/ui/Slider.tsx";
 import { useAutocomplete } from "deco-sites/std/packs/vtex/hooks/useAutocomplete.ts";
-import { useUI } from "$store/sdk/useUI.ts";
 import { AnalyticsEvent } from "deco-sites/std/commerce/types.ts";
 import { sendEvent } from "$store/sdk/analytics.tsx";
 
@@ -26,19 +25,6 @@ declare global {
       sendAnalyticsEvent: (args: AnalyticsEvent) => void;
     };
   }
-}
-
-function CloseButton() {
-  const { displaySearchbar } = useUI();
-
-  return (
-    <Button
-      class="btn-ghost btn-circle"
-      onClick={() => (displaySearchbar.value = false)}
-    >
-      <Icon id="XMark" width={20} height={20} strokeWidth={2} />
-    </Button>
-  );
 }
 
 // Editable props
@@ -93,30 +79,30 @@ function Searchbar({
   }, []);
 
   return (
-    <div class="flex flex-col p-4 md:py-6 md:px-20">
+    <div class="flex flex-col">
       <div class="flex items-center gap-4">
         <form
           id="searchbar"
           action={action}
-          class="flex-grow flex gap-3 px-3 py-2 border border-base-200"
+          class="flex-grow flex gap-3 px-4 py-2 md:p-0 relative"
         >
           <Button
-            class="btn-ghost"
+            class="btn-ghost absolute right-4 top-1/2 -translate-y-1/2 md:p-0"
             aria-label="Search"
             htmlFor="searchbar"
             tabIndex={-1}
           >
             <Icon
-              class="text-base-300"
+              class="text-secondary"
               id="MagnifyingGlass"
-              size={20}
+              size={21}
               strokeWidth={0.01}
             />
           </Button>
           <input
             ref={searchInputRef}
             id="search-input"
-            class="flex-grow outline-none placeholder-shown:sibling:hidden"
+            class="flex-grow outline-none placeholder-shown:sibling:hidden bg-base-200 rounded px-4 h-9 text-xs text-neutral-content"
             name={name}
             defaultValue={query}
             onInput={(e) => {
@@ -139,7 +125,7 @@ function Searchbar({
           <button
             type="button"
             aria-label="Clean search"
-            class="focus:outline-none"
+            class="focus:outline-none hidden absolute"
             tabIndex={-1}
             onClick={(e) => {
               e.stopPropagation();
@@ -149,29 +135,13 @@ function Searchbar({
               setSearch("");
             }}
           >
-            <span class="text-sm">limpar</span>
+            <span class="text-sm">X</span>
           </button>
         </form>
-        {variant === "desktop" && <CloseButton />}
       </div>
       <div class="flex flex-col gap-6 divide-y divide-base-200 mt-6 empty:mt-0 md:flex-row md:divide-y-0">
-        {notFound
-          ? (
-            <div class="py-16 md:py-6! flex flex-col gap-4 w-full">
-              <span
-                class="font-medium text-xl text-center"
-                role="heading"
-                aria-level={3}
-              >
-                Nenhum resultado encontrado
-              </span>
-              <span class="text-center text-base-300">
-                Vamos tentar de outro jeito? Verifique a ortografia ou use um
-                termo diferente
-              </span>
-            </div>
-          )
-          : (
+        {!notFound &&
+          (
             <>
               <div class="flex flex-col gap-6 md:w-[15.25rem] md:max-w-[15.25rem]\">
                 <div class="flex gap-2 items-center">

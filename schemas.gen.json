@@ -7219,33 +7219,13 @@
           "description": "Image's alt text",
           "title": "Alt"
         },
-        "action": {
-          "type": "object",
-          "properties": {
-            "href": {
-              "type": "string",
-              "title": "Href"
-            },
-            "title": {
-              "type": "string",
-              "title": "Title"
-            },
-            "subTitle": {
-              "type": "string",
-              "title": "Sub Title"
-            },
-            "label": {
-              "type": "string",
-              "title": "Label"
-            }
-          },
-          "required": [
-            "href",
-            "title",
-            "subTitle",
-            "label"
+        "href": {
+          "type": [
+            "string",
+            "null"
           ],
-          "title": "Action"
+          "description": "when user clicks on the image, go to this link",
+          "title": "Href"
         }
       },
       "required": [
@@ -7502,7 +7482,7 @@
       "required": [],
       "title": "OptionalColors"
     },
-    "ZGVjby1zaXRlcy9zY29sYWRvcy9zZWN0aW9ucy9EZXNpZ25TeXN0ZW0udHN4@Colors&b966eeb0bbdb3699ee11b12ce6a39cc4": {
+    "ZGVjby1zaXRlcy9zY29sYWRvcy9zZWN0aW9ucy9EZXNpZ25TeXN0ZW0udHN4@33b6e6bcd0798b17b2a92dd10810abae&Colors": {
       "allOf": [
         {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9zY29sYWRvcy9zZWN0aW9ucy9EZXNpZ25TeXN0ZW0udHN4@Colors"
@@ -7518,7 +7498,7 @@
           "required": []
         }
       ],
-      "title": "Colors&b966eeb0bbdb3699ee11b12ce6a39cc4"
+      "title": "33b6e6bcd0798b17b2a92dd10810abae&Colors"
     },
     "ZGVjby1zaXRlcy9zY29sYWRvcy9zZWN0aW9ucy9EZXNpZ25TeXN0ZW0udHN4@Miscellaneous": {
       "type": "object",
@@ -7621,7 +7601,7 @@
       "type": "object",
       "properties": {
         "colors": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9zY29sYWRvcy9zZWN0aW9ucy9EZXNpZ25TeXN0ZW0udHN4@Colors&b966eeb0bbdb3699ee11b12ce6a39cc4",
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zY29sYWRvcy9zZWN0aW9ucy9EZXNpZ25TeXN0ZW0udHN4@33b6e6bcd0798b17b2a92dd10810abae&Colors",
           "title": "Colors"
         },
         "miscellaneous": {
@@ -8161,13 +8141,111 @@
       },
       "title": "NavItem[]"
     },
+    "ZGVjby1zaXRlcy9zY29sYWRvcy9jb21wb25lbnRzL2hlYWRlci9IZWFkZXIudHN4@HeaderAction": {
+      "type": "object",
+      "properties": {
+        "label": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "title": "Label"
+        },
+        "icon": {
+          "type": "object",
+          "properties": {
+            "size": {
+              "type": "number",
+              "title": "Size"
+            },
+            "src": {
+              "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
+              "title": "Src"
+            },
+            "alt": {
+              "type": "string",
+              "title": "Alt"
+            }
+          },
+          "required": [
+            "size",
+            "src",
+            "alt"
+          ],
+          "title": "Icon"
+        },
+        "href": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "title": "Href"
+        }
+      },
+      "required": [],
+      "title": "HeaderAction"
+    },
+    "ZGVjby1zaXRlcy9zY29sYWRvcy9jb21wb25lbnRzL2hlYWRlci9IZWFkZXIudHN4@HeaderAction[]": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/ZGVjby1zaXRlcy9zY29sYWRvcy9jb21wb25lbnRzL2hlYWRlci9IZWFkZXIudHN4@HeaderAction"
+      },
+      "title": "HeaderAction[]"
+    },
     "ZGVjby1zaXRlcy9zY29sYWRvcy9jb21wb25lbnRzL2hlYWRlci9IZWFkZXIudHN4@Props": {
       "type": "object",
       "properties": {
+        "logoImage": {
+          "type": "object",
+          "properties": {
+            "source": {
+              "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
+              "title": "Source"
+            },
+            "desktopWidth": {
+              "type": "number",
+              "title": "Desktop Width"
+            },
+            "desktopHeight": {
+              "type": "number",
+              "title": "Desktop Height"
+            },
+            "mobileWidth": {
+              "type": "number",
+              "title": "Mobile Width"
+            },
+            "mobileHeight": {
+              "type": "number",
+              "title": "Mobile Height"
+            }
+          },
+          "required": [
+            "source",
+            "desktopWidth",
+            "desktopHeight",
+            "mobileWidth",
+            "mobileHeight"
+          ],
+          "title": "Logo Image"
+        },
         "alerts": {
           "type": "array",
           "items": {
-            "type": "string"
+            "type": "object",
+            "properties": {
+              "desktopText": {
+                "type": "string",
+                "title": "Desktop Text"
+              },
+              "mobileText": {
+                "type": "string",
+                "title": "Mobile Text"
+              }
+            },
+            "required": [
+              "desktopText",
+              "mobileText"
+            ]
           },
           "title": "Alerts"
         },
@@ -8180,6 +8258,11 @@
           "title": "Navigation items",
           "description": "Navigation items used both on mobile and desktop menus"
         },
+        "desktopActionItems": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zY29sYWRvcy9jb21wb25lbnRzL2hlYWRlci9IZWFkZXIudHN4@HeaderAction[]",
+          "title": "Action items",
+          "description": "Link items used on desktop header"
+        },
         "products": {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tbWVyY2UvdHlwZXMudHM=@Product[]|null",
           "title": "Product suggestions",
@@ -8188,9 +8271,17 @@
         "suggestions": {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tbWVyY2UvdHlwZXMudHM=@Suggestion|null",
           "title": "Enable Top Search terms"
+        },
+        "fixed": {
+          "type": [
+            "boolean",
+            "null"
+          ],
+          "title": "Fixed header position"
         }
       },
       "required": [
+        "logoImage",
         "alerts"
       ],
       "title": "deco-sites/scolados/components/header/Header.tsx@Props"
@@ -8857,7 +8948,11 @@
         },
         "name": {
           "type": "string",
-          "title": "Name"
+          "title": "The audience name (will be used on cookies).",
+          "description": "Add a meaningful short word for the audience name.",
+          "maxLength": 22,
+          "minLength": 3,
+          "pattern": "^[A-Za-z0-9_]+$"
         },
         "routes": {
           "$ref": "#/definitions/ZGVjby1jeC9saXZlL2ZsYWdzL2F1ZGllbmNlLnRz@Route[]",
@@ -8973,7 +9068,7 @@
       ],
       "title": "WorkflowRef"
     },
-    "ZGVjby1jeC9saXZlL2FjdGlvbnMvd29ya2Zsb3dzL3N0YXJ0LnRz@95abd76f92dd138f258080286726977e|WorkflowRef": {
+    "ZGVjby1jeC9saXZlL2FjdGlvbnMvd29ya2Zsb3dzL3N0YXJ0LnRz@6fafe0f553db3c0685828404a37be338|WorkflowRef": {
       "anyOf": [
         {
           "$ref": "#/definitions/ZGVjby1jeC9saXZlL2FjdGlvbnMvd29ya2Zsb3dzL3N0YXJ0LnRz@WorkflowRef"
@@ -8991,13 +9086,13 @@
           ]
         }
       ],
-      "title": "95abd76f92dd138f258080286726977e|WorkflowRef"
+      "title": "6fafe0f553db3c0685828404a37be338|WorkflowRef"
     },
     "ZGVjby1jeC9saXZlL2FjdGlvbnMvd29ya2Zsb3dzL3N0YXJ0LnRz@Props": {
       "type": "object",
       "properties": {
         "workflow": {
-          "$ref": "#/definitions/ZGVjby1jeC9saXZlL2FjdGlvbnMvd29ya2Zsb3dzL3N0YXJ0LnRz@95abd76f92dd138f258080286726977e|WorkflowRef",
+          "$ref": "#/definitions/ZGVjby1jeC9saXZlL2FjdGlvbnMvd29ya2Zsb3dzL3N0YXJ0LnRz@6fafe0f553db3c0685828404a37be338|WorkflowRef",
           "title": "Workflow"
         },
         "id": {
