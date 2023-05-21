@@ -31,7 +31,9 @@ function CategoryList({ categories, title }: Props) {
                 />
               </div>
             </a>
-            <span class="mt-2 text-xs md:text-base text-center">{category.label}</span>
+            <span class="mt-2 text-xs md:text-base text-center">
+              {category.label}
+            </span>
           </div>
         ))}
       </div>

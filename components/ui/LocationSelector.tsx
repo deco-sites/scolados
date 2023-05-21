@@ -29,7 +29,7 @@ function LocationSelector({ locations }: Props) {
         ))}
       </div>
       <div
-        class={`flex flex-col flex-wrap w-full mt-9 md:flex-row md:gap-3 ${
+        class={`flex flex-col flex-wrap w-full mt-9 md:flex-row md:gap-x-3 ${
           selectedLocation && selectedLocation.schools.length === 1
             ? "justify-center"
             : ""
