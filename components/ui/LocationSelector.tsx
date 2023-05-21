@@ -30,7 +30,9 @@ function LocationSelector({ locations }: Props) {
       </div>
       <div
         class={`flex flex-col flex-wrap w-full mt-9 md:flex-row ${
-          selectedLocation && selectedLocation.schools.length === 1 ? "justify-center" : ""
+          selectedLocation && selectedLocation.schools.length === 1
+            ? "justify-center"
+            : ""
         }`}
       >
         {selectedLocation &&

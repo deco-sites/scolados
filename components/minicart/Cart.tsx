@@ -15,8 +15,7 @@ declare global {
   }
 }
 
-const CHECKOUT_URL =
-  "https://scoladosio.vtexcommercestable.com.br/checkout";
+const CHECKOUT_URL = "https://scoladosio.vtexcommercestable.com.br/checkout";
 
 function Cart() {
   const { displayCart } = useUI();

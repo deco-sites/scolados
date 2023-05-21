@@ -5,13 +5,9 @@ import { useUI } from "$store/sdk/useUI.ts";
 import type { Props as MenuProps } from "$store/components/header/Menu.tsx";
 import Loading from "$store/components/ui/Loading.tsx";
 
-const Menu = lazy(() =>
-  import("$store/components/header/Menu.tsx")
-);
+const Menu = lazy(() => import("$store/components/header/Menu.tsx"));
 
-const Cart = lazy(() =>
-  import("$store/components/minicart/Cart.tsx")
-);
+const Cart = lazy(() => import("$store/components/minicart/Cart.tsx"));
 
 interface Props {
   menu: MenuProps;
