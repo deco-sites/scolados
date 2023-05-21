@@ -87,6 +87,7 @@
               "deco-sites/scolados/sections/CategoryList.tsx",
               "deco-sites/scolados/sections/CookieConsent.tsx",
               "deco-sites/scolados/sections/DesignSystem.tsx",
+              "deco-sites/scolados/sections/DoubleBanner.tsx",
               "deco-sites/scolados/sections/Features.tsx",
               "deco-sites/scolados/sections/FindSchool.tsx",
               "deco-sites/scolados/sections/Footer.tsx",
@@ -7729,6 +7730,56 @@
       "required": [],
       "title": "deco-sites/scolados/sections/DesignSystem.tsx@Props"
     },
+    "ZGVjby1zaXRlcy9zY29sYWRvcy9jb21wb25lbnRzL3VpL0RvdWJsZUJhbm5lci50c3g=@Banner": {
+      "type": "object",
+      "properties": {
+        "desktopImage": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
+          "title": "Desktop Image"
+        },
+        "mobileImage": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
+          "title": "Mobile Image"
+        },
+        "alt": {
+          "type": "string",
+          "title": "Alt"
+        },
+        "href": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "title": "Href"
+        }
+      },
+      "required": [
+        "desktopImage",
+        "mobileImage",
+        "alt"
+      ],
+      "title": "Banner"
+    },
+    "ZGVjby1zaXRlcy9zY29sYWRvcy9jb21wb25lbnRzL3VpL0RvdWJsZUJhbm5lci50c3g=@Banner[]": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/ZGVjby1zaXRlcy9zY29sYWRvcy9jb21wb25lbnRzL3VpL0RvdWJsZUJhbm5lci50c3g=@Banner"
+      },
+      "title": "Banner[]"
+    },
+    "ZGVjby1zaXRlcy9zY29sYWRvcy9jb21wb25lbnRzL3VpL0RvdWJsZUJhbm5lci50c3g=@Props": {
+      "type": "object",
+      "properties": {
+        "banners": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zY29sYWRvcy9jb21wb25lbnRzL3VpL0RvdWJsZUJhbm5lci50c3g=@Banner[]",
+          "title": "Banners"
+        }
+      },
+      "required": [
+        "banners"
+      ],
+      "title": "deco-sites/scolados/components/ui/DoubleBanner.tsx@Props"
+    },
     "ZGVjby1zaXRlcy9zY29sYWRvcy9jb21wb25lbnRzL3VpL0ZlYXR1cmVzLnRzeA==@Feature": {
       "type": "object",
       "properties": {
@@ -11300,6 +11351,27 @@
         }
       }
     },
+    "ZGVjby1zaXRlcy9zY29sYWRvcy9zZWN0aW9ucy9Eb3VibGVCYW5uZXIudHN4": {
+      "title": "deco-sites/scolados/sections/DoubleBanner.tsx",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zY29sYWRvcy9jb21wb25lbnRzL3VpL0RvdWJsZUJhbm5lci50c3g=@Props"
+        }
+      ],
+      "required": [
+        "__resolveType"
+      ],
+      "properties": {
+        "__resolveType": {
+          "type": "string",
+          "enum": [
+            "deco-sites/scolados/sections/DoubleBanner.tsx"
+          ],
+          "default": "deco-sites/scolados/sections/DoubleBanner.tsx"
+        }
+      }
+    },
     "ZGVjby1zaXRlcy9zY29sYWRvcy9zZWN0aW9ucy9GZWF0dXJlcy50c3g=": {
       "title": "deco-sites/scolados/sections/Features.tsx",
       "type": "object",
@@ -12696,6 +12768,9 @@
         },
         {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9zY29sYWRvcy9zZWN0aW9ucy9EZXNpZ25TeXN0ZW0udHN4"
+        },
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zY29sYWRvcy9zZWN0aW9ucy9Eb3VibGVCYW5uZXIudHN4"
         },
         {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9zY29sYWRvcy9zZWN0aW9ucy9GZWF0dXJlcy50c3g="
