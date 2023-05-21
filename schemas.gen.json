@@ -62,6 +62,7 @@
               "./islands/HeaderButton.tsx",
               "./islands/HeaderModals.tsx",
               "./islands/HeaderSearchbar.tsx",
+              "./islands/LocationSelector.tsx",
               "./islands/Newsletter.tsx",
               "./islands/OutOfStock.tsx",
               "./islands/ProductImageZoom.tsx",
@@ -86,6 +87,7 @@
               "deco-sites/scolados/sections/CookieConsent.tsx",
               "deco-sites/scolados/sections/DesignSystem.tsx",
               "deco-sites/scolados/sections/Features.tsx",
+              "deco-sites/scolados/sections/FindSchool.tsx",
               "deco-sites/scolados/sections/Footer.tsx",
               "deco-sites/scolados/sections/Header.tsx",
               "deco-sites/scolados/sections/Highlights.tsx",
@@ -6582,6 +6584,63 @@
       ],
       "title": "deco-sites/std/packs/vtex/loaders/wishlist.ts@Props"
     },
+    "ZGVjby1zaXRlcy9zY29sYWRvcy9jb21wb25lbnRzL3VpL0xvY2F0aW9uU2VsZWN0b3IudHN4@Location": {
+      "type": "object",
+      "properties": {
+        "label": {
+          "type": "string",
+          "title": "Label"
+        },
+        "schools": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "label": {
+                "type": "string",
+                "title": "Label"
+              },
+              "href": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "title": "Href"
+              }
+            },
+            "required": [
+              "label"
+            ]
+          },
+          "title": "Schools"
+        }
+      },
+      "required": [
+        "label",
+        "schools"
+      ],
+      "title": "Location"
+    },
+    "ZGVjby1zaXRlcy9zY29sYWRvcy9jb21wb25lbnRzL3VpL0xvY2F0aW9uU2VsZWN0b3IudHN4@Location[]": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/ZGVjby1zaXRlcy9zY29sYWRvcy9jb21wb25lbnRzL3VpL0xvY2F0aW9uU2VsZWN0b3IudHN4@Location"
+      },
+      "title": "Location[]"
+    },
+    "ZGVjby1zaXRlcy9zY29sYWRvcy9jb21wb25lbnRzL3VpL0xvY2F0aW9uU2VsZWN0b3IudHN4@Props": {
+      "type": "object",
+      "properties": {
+        "locations": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zY29sYWRvcy9jb21wb25lbnRzL3VpL0xvY2F0aW9uU2VsZWN0b3IudHN4@Location[]",
+          "title": "Locations"
+        }
+      },
+      "required": [
+        "locations"
+      ],
+      "title": "deco-sites/scolados/components/ui/LocationSelector.tsx@Props"
+    },
     "ZGVjby1zaXRlcy9zdGQvcGFja3MvdnRleC90eXBlcy50cw==@SKU": {
       "type": "object",
       "properties": {
@@ -7752,6 +7811,10 @@
             {
               "type": "string",
               "const": "ArrowsPointingOut"
+            },
+            {
+              "type": "string",
+              "const": "ArrowRightCircle"
             }
           ],
           "type": "string",
@@ -7795,6 +7858,68 @@
         "features"
       ],
       "title": "deco-sites/scolados/components/ui/Features.tsx@Props"
+    },
+    "ZGVjby1zaXRlcy9zY29sYWRvcy9jb21wb25lbnRzL3VpL0ZpbmRTY2hvb2wudHN4@Location": {
+      "type": "object",
+      "properties": {
+        "label": {
+          "type": "string",
+          "title": "Label"
+        },
+        "schools": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "label": {
+                "type": "string",
+                "title": "Label"
+              },
+              "href": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "title": "Href"
+              }
+            },
+            "required": [
+              "label"
+            ]
+          },
+          "title": "Schools"
+        }
+      },
+      "required": [
+        "label",
+        "schools"
+      ],
+      "title": "Location"
+    },
+    "ZGVjby1zaXRlcy9zY29sYWRvcy9jb21wb25lbnRzL3VpL0ZpbmRTY2hvb2wudHN4@Location[]": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/ZGVjby1zaXRlcy9zY29sYWRvcy9jb21wb25lbnRzL3VpL0ZpbmRTY2hvb2wudHN4@Location"
+      },
+      "title": "Location[]"
+    },
+    "ZGVjby1zaXRlcy9zY29sYWRvcy9jb21wb25lbnRzL3VpL0ZpbmRTY2hvb2wudHN4@Props": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string",
+          "title": "Title"
+        },
+        "locations": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zY29sYWRvcy9jb21wb25lbnRzL3VpL0ZpbmRTY2hvb2wudHN4@Location[]",
+          "title": "Locations"
+        }
+      },
+      "required": [
+        "title",
+        "locations"
+      ],
+      "title": "deco-sites/scolados/components/ui/FindSchool.tsx@Props"
     },
     "ZGVjby1zaXRlcy9zY29sYWRvcy9jb21wb25lbnRzL2Zvb3Rlci9Gb290ZXIudHN4@StringItem": {
       "type": "object",
@@ -7950,6 +8075,10 @@
             {
               "type": "string",
               "const": "ArrowsPointingOut"
+            },
+            {
+              "type": "string",
+              "const": "ArrowRightCircle"
             }
           ],
           "type": "string",
@@ -10547,6 +10676,27 @@
         }
       }
     },
+    "Li9pc2xhbmRzL0xvY2F0aW9uU2VsZWN0b3IudHN4": {
+      "title": "./islands/LocationSelector.tsx",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zY29sYWRvcy9jb21wb25lbnRzL3VpL0xvY2F0aW9uU2VsZWN0b3IudHN4@Props"
+        }
+      ],
+      "required": [
+        "__resolveType"
+      ],
+      "properties": {
+        "__resolveType": {
+          "type": "string",
+          "enum": [
+            "./islands/LocationSelector.tsx"
+          ],
+          "default": "./islands/LocationSelector.tsx"
+        }
+      }
+    },
     "Li9pc2xhbmRzL05ld3NsZXR0ZXIudHN4": {
       "title": "./islands/Newsletter.tsx",
       "type": "object",
@@ -11017,6 +11167,27 @@
             "deco-sites/scolados/sections/Features.tsx"
           ],
           "default": "deco-sites/scolados/sections/Features.tsx"
+        }
+      }
+    },
+    "ZGVjby1zaXRlcy9zY29sYWRvcy9zZWN0aW9ucy9GaW5kU2Nob29sLnRzeA==": {
+      "title": "deco-sites/scolados/sections/FindSchool.tsx",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zY29sYWRvcy9jb21wb25lbnRzL3VpL0ZpbmRTY2hvb2wudHN4@Props"
+        }
+      ],
+      "required": [
+        "__resolveType"
+      ],
+      "properties": {
+        "__resolveType": {
+          "type": "string",
+          "enum": [
+            "deco-sites/scolados/sections/FindSchool.tsx"
+          ],
+          "default": "deco-sites/scolados/sections/FindSchool.tsx"
         }
       }
     },
@@ -12256,6 +12427,9 @@
           "$ref": "#/definitions/Li9pc2xhbmRzL0hlYWRlclNlYXJjaGJhci50c3g="
         },
         {
+          "$ref": "#/definitions/Li9pc2xhbmRzL0xvY2F0aW9uU2VsZWN0b3IudHN4"
+        },
+        {
           "$ref": "#/definitions/Li9pc2xhbmRzL05ld3NsZXR0ZXIudHN4"
         },
         {
@@ -12350,6 +12524,9 @@
         },
         {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9zY29sYWRvcy9zZWN0aW9ucy9GZWF0dXJlcy50c3g="
+        },
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zY29sYWRvcy9zZWN0aW9ucy9GaW5kU2Nob29sLnRzeA=="
         },
         {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9zY29sYWRvcy9zZWN0aW9ucy9Gb290ZXIudHN4"
